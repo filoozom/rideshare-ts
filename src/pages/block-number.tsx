@@ -1,7 +1,10 @@
-import type { RouteComponentProps } from "@reach/router";
+import type { RouteComponentProps } from '@reach/router'
+import { useBlockNumber } from '@usedapp/core'
 
-type BlockNumberPageProps = RouteComponentProps;
+type BlockNumberPageProps = RouteComponentProps
 
 export const BlockNumberPage = (_: BlockNumberPageProps) => {
-	return null
+	const blockNumber = useBlockNumber()
+
+	return <div>Block number: {blockNumber}</div>
 }

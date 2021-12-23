@@ -1,7 +1,10 @@
-import type { RouteComponentProps } from "@reach/router";
+import { useMemo } from 'preact/hooks'
+import { Wallet } from 'ethers'
+import type { RouteComponentProps } from '@reach/router'
 
-type MnemonicPageProps = RouteComponentProps;
+type MnemonicPageProps = RouteComponentProps
 
 export const MnemonicPage = (_: MnemonicPageProps) => {
-	return null
+	const { mnemonic } = useMemo(() => Wallet.createRandom(), [])
+	return <div>Mnemonic: {mnemonic.phrase}</div>
 }
